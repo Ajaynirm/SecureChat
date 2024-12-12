@@ -13,7 +13,8 @@ import { app, server } from "./lib/socket.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+const port = process.env.PORT||4000;
+console.log(port)
 const __dirname = path.resolve();
 
 app.use(express.json());
@@ -36,7 +37,9 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-server.listen(PORT, () => {
-  console.log("server is running on PORT:" + PORT);
+server.listen(port, () => {
+  console.log("server is running on PORT:" + port);
   connectDB();
 });
+
+
